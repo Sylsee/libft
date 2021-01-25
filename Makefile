@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2020/11/16 01:01:00 by spoliart         ###   ########.fr        #
+#    Updated: 2021/01/24 18:30:44 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,6 @@ RM				=	rm -rf
 
 NORMINETTE		=	$(shell which norminette)
 
-ifeq ($$?, 1)
-	NORMINETTE := ${HOME}/.norminette/norminette.rb
-endif
-
 ## DIRECTORIES ##
 
 DIR_HEADERS		=	./includes/
@@ -41,7 +37,7 @@ DIR_OBJS		=	./objs/
 SUB_DIRS		=	. \
 					char \
 					str \
-					put \
+					print \
 					mem \
 					lst \
 					nbr
@@ -57,10 +53,10 @@ SRCS			=	char/ft_isalnum.c \
 					char/ft_isprint.c \
 					char/ft_tolower.c \
 					char/ft_toupper.c \
-					put/ft_putchar_fd.c \
-					put/ft_putendl_fd.c \
-					put/ft_putnbr_fd.c \
-					put/ft_putstr_fd.c \
+					print/ft_putchar_fd.c \
+					print/ft_putendl_fd.c \
+					print/ft_putnbr_fd.c \
+					print/ft_putstr_fd.c \
 					str/ft_split.c \
 					str/ft_strchr.c \
 					str/ft_strdup.c \
@@ -116,11 +112,9 @@ $(NAME):		$(OBJS)
 $(DIR_OBJS)%.o:	$(DIR_SRCS)%.c
 					@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
 
-$(OBJS):		| $(DIR_OBJS)
+$(OBJS):		$(DIR_OBJS)
 
-$(DIR_OBJS):	$(SUB_DIR_OBJS)
-
-$(SUB_DIR_OBJS):
+$(DIR_OBJS):
 					@mkdir -p $(SUB_DIR_OBJS)
 
 ## OBLIGATORY PART ##
@@ -129,19 +123,19 @@ clean:
 					@$(RM) $(DIR_OBJS)
 
 fclean:			clean
-					@$(RM) $(NAME) #libft.so
+					@$(RM) $(NAME) libft.so
 
 re:				fclean all
 
 ## NORME ##
 
 norme:
-			@$(NORMINETTE) $(DIR_SRCS)
-			@$(NORMINETTE) $(DIR_HEADERS)
+					@$(NORMINETTE) $(DIR_SRCS)
+					@$(NORMINETTE) $(DIR_HEADERS)
 
 ## PHONY ##
 
-.PHONY:		all clean re fclean norme #so
+.PHONY:			all clean re fclean norme so
 
-#so:
-#			gcc $(OBJS) -shared -o libft.so
+so:
+					gcc $(OBJS) -shared -o libft.so

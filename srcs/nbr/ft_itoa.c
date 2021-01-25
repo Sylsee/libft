@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:23:56 by spoliart          #+#    #+#             */
-/*   Updated: 2020/11/15 23:22:02 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/01/04 16:23:42 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_nbrlen(long nb)
 	return (++count);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		i;
 	long	tmp;

@@ -6,11 +6,13 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 00:28:00 by spoliart          #+#    #+#             */
-/*   Updated: 2020/11/15 23:43:24 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/01/24 18:25:09 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 static char		**ft_free_all(char **ret, size_t i)
 {
@@ -46,7 +48,7 @@ static size_t	ft_nb_word(char const *s, char c)
 		count++;
 	while (s[i])
 	{
-		if (s[i] != c && s[i - 1] == c && i > 0)
+		if (i > 0 && s[i] != c && s[i - 1] == c)
 			count++;
 		i++;
 	}
@@ -72,13 +74,12 @@ static char		*ft_fill_tab(char const *s, char c, char *ret, size_t *i)
 
 char			**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	nb_word;
-	char	**ret;
+	char			**ret;
+	size_t			i;
+	size_t			nb_word;
+	static size_t	j = 0;
 
 	i = 0;
-	j = 0;
 	if (!s)
 		return (NULL);
 	nb_word = ft_nb_word(s, c);
@@ -96,20 +97,6 @@ char			**ft_split(char const *s, char c)
 	ret[j] = (char *)malloc(sizeof(char));
 	if (!ret[j])
 		return (ft_free_all(ret, j));
-	ret[j][0] = '\0';
-	return (ret);
+	ret[j] = 0;
+	return (&ret[0]);
 }
-/*
-int				main(int argc, char **argv)
-{
-	int i;
-	char **ret;
-
-	(void)argc;
-	i = -1;
-	printf("yo");
-	ret = ft_split((char const *)argv[1], argv[2][0]);
-	while (ret[++i])
-		printf("%s\n", ret[i]);
-}
-*/
