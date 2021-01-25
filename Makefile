@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/01/24 18:30:44 by spoliart         ###   ########.fr        #
+#    Updated: 2021/01/25 17:15:01 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,10 @@ RM				=	rm -rf
 ## NORME ##
 
 NORMINETTE		=	$(shell which norminette)
+
+ifeq ($$?, 1)
+	NORMINETTE := ${HOME}/.norminette/norminette.rb
+endif
 
 ## DIRECTORIES ##
 
@@ -74,7 +78,6 @@ SRCS			=	char/ft_isalnum.c \
 					nbr/ft_itoa.c \
 					mem/ft_bzero.c \
 					mem/ft_calloc.c \
-					mem/ft_memccpy.c \
 					mem/ft_memchr.c \
 					mem/ft_memcmp.c \
 					mem/ft_memcpy.c \
@@ -112,9 +115,11 @@ $(NAME):		$(OBJS)
 $(DIR_OBJS)%.o:	$(DIR_SRCS)%.c
 					@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
 
-$(OBJS):		$(DIR_OBJS)
+$(OBJS):		| $(DIR_OBJS)
 
-$(DIR_OBJS):
+$(DIR_OBJS):	$(SUB_DIR_OBJS)
+
+$(SUB_DIR_OBJS):
 					@mkdir -p $(SUB_DIR_OBJS)
 
 ## OBLIGATORY PART ##
@@ -137,5 +142,5 @@ norme:
 
 .PHONY:			all clean re fclean norme so
 
-so:
+so:				fclean $(OBJS)
 					gcc $(OBJS) -shared -o libft.so

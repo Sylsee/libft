@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/04 16:36:17 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/01/25 16:59:00 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlcpy(char *dst, const char *src, size_t n);
-unsigned int		ft_strlcat(char *dest, char *src, unsigned int size);
+size_t				ft_strlcat(char *dest, char *src, unsigned int size);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_strdup(const char *s);
 

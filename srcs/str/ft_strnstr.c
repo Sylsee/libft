@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 18:53:58 by spoliart          #+#    #+#             */
-/*   Updated: 2020/11/01 17:18:30 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/01/25 18:39:49 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 
 	i = 0;
 	pt = (char *)s1;
-	if (!s2)
-		return (pt);
+	if (!n)
+		return (NULL);
 	while (pt[i] && i < n)
 	{
 		j = 0;
-		while (pt[i + j] == s2[j] && i + j < n)
+		while (pt[i + j] && s2[j] && pt[i + j] == s2[j] && i + j < n)
 			j++;
 		if (!s2[j])
 			return (&pt[i]);
