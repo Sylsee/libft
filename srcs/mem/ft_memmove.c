@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:26:31 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/25 18:05:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/01/28 16:06:56 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		i;
-	char	tab[len];
-	char	*pt_src;
-	char	*pt_dst;
+	size_t			i;
+	unsigned char	*tab;
+	unsigned char	*pt_src;
+	unsigned char	*pt_dst;
 
 	i = 0;
-	pt_src = (char *)src;
-	pt_dst = (char *)dst;
-	if (!len || src == dst)
+	pt_src = (unsigned char *)src;
+	pt_dst = (unsigned char *)dst;
+	tab = (unsigned char *)malloc(sizeof(tab) * len);
+	if (!tab || !len || src == dst)
 		return (dst);
-	while (i < (int)len)
+	while (i < len)
 		tab[i++] = *pt_src++;
 	i = 0;
-	while (i < (int)len)
+	while (i < len)
 		*pt_dst++ = tab[i++];
 	return (dst);
 }
