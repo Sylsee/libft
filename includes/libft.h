@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/26 18:13:37 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/02/26 18:26:12 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlcpy(char *dst, const char *src, size_t n);
-size_t				ft_strlcat(char *dest, char *src, unsigned int size);
+size_t				ft_strlcat(char *dest, const char *src, size_t size);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_strdup(const char *s);
-void				*ft_strrev(char *str);
+void				ft_strrev(char *str);
 char				*ft_strextract(char const *s, char const *set);
 
 int					ft_atoi(const char *nptr);
@@ -62,6 +62,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
+int					ft_putxchar_fd(char c, int fd, int x);
 
 
 typedef struct		s_list
