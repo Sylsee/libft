@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/01/25 17:15:01 by spoliart         ###   ########.fr        #
+#    Updated: 2021/02/26 18:08:57 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,10 +74,14 @@ SRCS			=	char/ft_isalnum.c \
 					str/ft_strrchr.c \
 					str/ft_strtrim.c \
 					str/ft_substr.c \
+					str/ft_strrev.c \
+					str/ft_strextract.c \
 					nbr/ft_atoi.c \
 					nbr/ft_itoa.c \
+					nbr/ft_nbrlen.c \
 					mem/ft_bzero.c \
 					mem/ft_calloc.c \
+					mem/ft_memalloc.c \
 					mem/ft_memchr.c \
 					mem/ft_memcmp.c \
 					mem/ft_memcpy.c \
@@ -109,34 +113,34 @@ all:			$(NAME)
 ## VARIABLES RULES ##
 
 $(NAME):		$(OBJS)
-					@ar rc $(NAME) $(OBJS)
-					@ranlib $(NAME)
+					ar rc $(NAME) $(OBJS)
+					ranlib $(NAME)
 
 $(DIR_OBJS)%.o:	$(DIR_SRCS)%.c
-					@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
+					$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
 
 $(OBJS):		| $(DIR_OBJS)
 
 $(DIR_OBJS):	$(SUB_DIR_OBJS)
 
 $(SUB_DIR_OBJS):
-					@mkdir -p $(SUB_DIR_OBJS)
+					mkdir -p $(SUB_DIR_OBJS)
 
 ## OBLIGATORY PART ##
 
 clean:
-					@$(RM) $(DIR_OBJS)
+					$(RM) $(DIR_OBJS)
 
 fclean:			clean
-					@$(RM) $(NAME) libft.so
+					$(RM) $(NAME) libft.so
 
 re:				fclean all
 
 ## NORME ##
 
 norme:
-					@$(NORMINETTE) $(DIR_SRCS)
-					@$(NORMINETTE) $(DIR_HEADERS)
+					$(NORMINETTE) $(DIR_SRCS)
+					$(NORMINETTE) $(DIR_HEADERS)
 
 ## PHONY ##
 

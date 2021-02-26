@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/13 23:29:23 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/11 13:18:53 by spoliart         ###   ########.fr       */
+/*   Created: 2020/10/12 20:37:28 by spoliart          #+#    #+#             */
+/*   Updated: 2020/11/15 23:21:11 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+int	ft_nbrlen(long nb)
 {
-	int		i;
-	int		size;
-	char	*ret;
+	int count;
 
-	i = 0;
-	if (!s || start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s) + 1)
-		size = ft_strlen(s);
-	else
-		size = len;
-	ret = (char *)malloc(sizeof(char) * (size + 1));
-	if (!ret)
-		return (NULL);
-	while (s[start + i] && i < (int)len)
+	count = 0;
+	if (nb < 0)
 	{
-		ret[i] = s[start + i];
-		i++;
+		count++;
+		nb *= -1;
 	}
-	ret[i] = '\0';
-	return (ret);
+	while (nb > 9)
+	{
+		nb /= 10;
+		count++;
+	}
+	return (++count);
 }

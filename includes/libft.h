@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/25 16:59:00 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/02/26 18:13:37 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
+void				*ft_memalloc(size_t size);
 void				*ft_memset(void *s, int c, size_t len);
 void				*ft_memcpy(void *dst, const void *src, size_t len);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t len);
@@ -44,8 +45,12 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t n);
 size_t				ft_strlcat(char *dest, char *src, unsigned int size);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_strdup(const char *s);
+void				*ft_strrev(char *str);
+char				*ft_strextract(char const *s, char const *set);
 
 int					ft_atoi(const char *nptr);
+char				*ft_itoa(int n);
+int					ft_nbrlen(long nb);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
@@ -58,7 +63,6 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-char				*ft_itoa(int n);
 
 typedef struct		s_list
 {

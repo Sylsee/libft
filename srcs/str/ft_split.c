@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
+/*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/18 00:28:00 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/25 16:48:37 by spoliart         ###   ########.fr       */
+/*   Created: 2021/01/30 13:00:49 by spoliart          #+#    #+#             */
+/*   Updated: 2021/02/11 22:38:54 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 static char		**ft_free_all(char **ret, size_t i)
 {
@@ -44,6 +42,8 @@ static size_t	ft_nb_word(char const *s, char c)
 
 	i = 0;
 	count = 0;
+	if (!s)
+		return (0);
 	if (s[0] && s[0] != c)
 		count++;
 	while (s[i])
@@ -74,29 +74,41 @@ static char		*ft_fill_tab(char const *s, char c, char *ret, size_t *i)
 
 char			**ft_split(char const *s, char c)
 {
+	int k;
 	char			**ret;
 	size_t			i;
 	size_t			nb_word;
-	static size_t	j = 0;
+	size_t	j;
 
 	i = 0;
-	if (!s)
-		return (NULL);
+	j = 0;
 	nb_word = ft_nb_word(s, c);
+	printf("len: %zu\n", nb_word);
 	ret = (char **)malloc(sizeof(char *) * (nb_word + 1));
 	if (!ret)
 		return (NULL);
 	while (nb_word--)
 	{
-		ret[j] = (char *)malloc(sizeof(char) * (ft_wordlen(s, c, i) + 1));
+		ret[j] = (char *)malloc(sizeof(char) * ((k = ft_wordlen(s, c, i)) + 1));
+		printf("len2: %d\n", k);
 		if (!ret[j])
 			return (ft_free_all(ret, j));
 		ret[j] = ft_fill_tab(s, c, ret[j], &i);
 		j++;
 	}
-	ret[j] = (char *)malloc(sizeof(char));
-	if (!ret[j])
-		return (ft_free_all(ret, j));
-	ret[j] = 0;
-	return (&ret[0]);
+	ret[j] = NULL;
+	return (ret);
+}
+
+int main()
+{
+	int i = -1;
+	char **tab = ft_split("s", ' ');
+	while (tab[++i] != NULL)
+	{
+		printf("%s\n", tab[i]);
+		free(tab[i]);
+	}
+	free(tab);
+	return (0);
 }

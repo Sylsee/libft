@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/13 23:29:23 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/11 13:18:53 by spoliart         ###   ########.fr       */
+/*   Created: 2020/10/12 20:24:08 by spoliart          #+#    #+#             */
+/*   Updated: 2020/10/12 20:25:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memalloc(size_t size)
 {
-	int		i;
-	int		size;
-	char	*ret;
+	void	*ret;
 
-	i = 0;
-	if (!s || start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len > ft_strlen(s) + 1)
-		size = ft_strlen(s);
-	else
-		size = len;
-	ret = (char *)malloc(sizeof(char) * (size + 1));
+	ret = malloc(sizeof(ret) * (size + 1));
 	if (!ret)
 		return (NULL);
-	while (s[start + i] && i < (int)len)
-	{
-		ret[i] = s[start + i];
-		i++;
-	}
-	ret[i] = '\0';
+	while (size--)
+		*(char *)ret = 0;
 	return (ret);
 }

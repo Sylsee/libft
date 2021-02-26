@@ -6,11 +6,11 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:31:01 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/30 14:45:26 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/02/14 23:21:14 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {

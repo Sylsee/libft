@@ -6,13 +6,13 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:32:16 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/25 16:59:59 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/01/31 15:38:15 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	unsigned int	s_len;
 	unsigned int	d_len;

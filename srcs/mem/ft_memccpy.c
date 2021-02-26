@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:25:35 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/25 18:02:19 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/02/11 15:20:54 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char	*pt_src;
-	unsigned char	*pt_dst;
-	unsigned char	pt_c;
-
-	pt_src = (unsigned char *)src;
-	pt_dst = (unsigned char *)dst;
-	pt_c = (unsigned char)c;
-	while (n-- && *pt_src != pt_c)
-		*pt_dst++ = *pt_src++;
-	if (*pt_src == pt_c)
+	while (n--)
 	{
-		*pt_dst++ = *pt_src;
-		return (pt_dst);
+		*(char *)dst = *(char *)src;
+		dst++;
+		if (*(char *)src == c)
+			return (dst);
+		src++;
 	}
 	return (NULL);
 }
