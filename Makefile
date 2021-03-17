@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/02/26 18:24:46 by spoliart         ###   ########.fr        #
+#    Updated: 2021/03/17 19:34:50 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,8 @@ SUB_DIRS		=	. \
 					print \
 					mem \
 					lst \
-					nbr
+					nbr \
+					utils
 
 SUB_DIR_OBJS	=	$(SUB_DIRS:%=$(DIR_OBJS)%)
 
@@ -97,7 +98,9 @@ SRCS			=	char/ft_isalnum.c \
 					lst/ft_lstlast.c \
 					lst/ft_lstmap.c \
 					lst/ft_lstnew.c \
-					lst/ft_lstsize.c
+					lst/ft_lstsize.c \
+					utils/get_next_line.c \
+					utils/get_next_line_utils.c
 
 ## COMPILED ##
 
@@ -114,11 +117,11 @@ all:			$(NAME)
 ## VARIABLES RULES ##
 
 $(NAME):		$(OBJS)
-					ar rc $(NAME) $(OBJS)
+					@ar rc $(NAME) $(OBJS)
 					ranlib $(NAME)
 
 $(DIR_OBJS)%.o:	$(DIR_SRCS)%.c
-					$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
+					@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
 
 $(OBJS):		| $(DIR_OBJS)
 
