@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 13:00:49 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/11 22:38:54 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/03/20 17:32:48 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,12 @@ char			**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	nb_word = ft_nb_word(s, c);
-	printf("len: %zu\n", nb_word);
 	ret = (char **)malloc(sizeof(char *) * (nb_word + 1));
 	if (!ret)
 		return (NULL);
 	while (nb_word--)
 	{
 		ret[j] = (char *)malloc(sizeof(char) * ((k = ft_wordlen(s, c, i)) + 1));
-		printf("len2: %d\n", k);
 		if (!ret[j])
 			return (ft_free_all(ret, j));
 		ret[j] = ft_fill_tab(s, c, ret[j], &i);
@@ -98,17 +96,4 @@ char			**ft_split(char const *s, char c)
 	}
 	ret[j] = NULL;
 	return (ret);
-}
-
-int main()
-{
-	int i = -1;
-	char **tab = ft_split("s", ' ');
-	while (tab[++i] != NULL)
-	{
-		printf("%s\n", tab[i]);
-		free(tab[i]);
-	}
-	free(tab);
-	return (0);
 }
