@@ -6,9 +6,15 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/03/17 19:34:50 by spoliart         ###   ########.fr        #
+#    Updated: 2021/03/20 17:48:25 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+_END		=	\e[0m
+
+_RED		=	\e[31m
+_GREEN		=	\e[32m
+_YELLOW		=	\e[33m
 
 ###### VARIABLES ######
 
@@ -117,10 +123,13 @@ all:			$(NAME)
 ## VARIABLES RULES ##
 
 $(NAME):		$(OBJS)
+					@printf "\033[2K\r$(_GREEN) All files compiled into '$(DIR_OBJS)'. $(_END)✅\n"
 					@ar rc $(NAME) $(OBJS)
-					ranlib $(NAME)
+					@ranlib $(NAME)
+					@printf "$(_GREEN) Library '$(NAME)' created. $(_END)✅\n"
 
 $(DIR_OBJS)%.o:	$(DIR_SRCS)%.c
+					@printf "\033[2K\r $(_YELLOW)Compiling $< $(_END)⌛"
 					@$(CC) $(CC_FLAGS) -I $(DIR_HEADERS) -c $< -o $@
 
 $(OBJS):		| $(DIR_OBJS)
@@ -128,15 +137,17 @@ $(OBJS):		| $(DIR_OBJS)
 $(DIR_OBJS):	$(SUB_DIR_OBJS)
 
 $(SUB_DIR_OBJS):
-					mkdir -p $(SUB_DIR_OBJS)
+					@mkdir -p $(SUB_DIR_OBJS)
 
 ## OBLIGATORY PART ##
 
 clean:
-					$(RM) $(DIR_OBJS)
+					@$(RM) $(DIR_OBJS)
+					@printf "$(_RED) '"$(DIR_OBJS)"' has been deleted. $(_END)🗑️\n"
 
 fclean:			clean
-					$(RM) $(NAME) libft.so
+					@$(RM) $(NAME) libft.so
+					@printf "$(_RED) '"$(NAME)"' has been deleted. $(_END)🗑️\n"
 
 re:				fclean all
 
