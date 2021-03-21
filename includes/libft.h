@@ -6,13 +6,14 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/26 18:26:12 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/03/21 17:08:09 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "get_next_line.h"
 # include <string.h>
 # include <strings.h>
 # include <unistd.h>
@@ -47,6 +48,7 @@ char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 char				*ft_strdup(const char *s);
 void				ft_strrev(char *str);
 char				*ft_strextract(char const *s, char const *set);
+int					ft_str_end(char *s, char *set);
 
 int					ft_atoi(const char *nptr);
 char				*ft_itoa(int n);
