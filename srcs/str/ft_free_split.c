@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putxchar.c                                      :+:      :+:    :+:   */
+/*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 18:22:18 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/26 18:24:10 by spoliart         ###   ########.fr       */
+/*   Created: 2021/03/27 00:51:44 by spoliart          #+#    #+#             */
+/*   Updated: 2021/03/27 01:01:42 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putxchar_fd(char c, int fd, int x)
+void	ft_free_split(char **tab)
 {
-	int ret;
+	int i;
 
-	ret = 0;
-	while (x-- > 0)
-		ret += write(fd, &c, 1);
-	return (ret);
+	i = -1;
+	if (tab)
+	{
+		while (tab[++i])
+			free(tab[i]);
+		free(tab);
+	}
 }

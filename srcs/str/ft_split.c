@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 13:00:49 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/20 17:35:24 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/03/27 01:05:49 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ static char		**ft_free_all(char **ret, size_t i)
 	return (0);
 }
 
-static size_t	ft_wordlen(char const *s, char c, size_t i)
+static size_t	ft_wordlen(char const *s, char *set, size_t i)
 {
 	size_t count;
 
 	count = 0;
-	while (s[i] && s[i] == c)
+	while (s[i] && ft_charset(s[i], set))
 		i++;
-	while (s[i] && s[i] != c)
+	while (s[i] && !(ft_charset(s[i], set)))
 	{
 		count++;
 		i++;
@@ -35,7 +35,7 @@ static size_t	ft_wordlen(char const *s, char c, size_t i)
 	return (count);
 }
 
-static size_t	ft_nb_word(char const *s, char c)
+static size_t	ft_nb_word(char const *s, char *set)
 {
 	size_t i;
 	size_t count;
@@ -44,25 +44,25 @@ static size_t	ft_nb_word(char const *s, char c)
 	count = 0;
 	if (!s)
 		return (0);
-	if (s[0] && s[0] != c)
+	if (s[0] && !(ft_charset(s[0], set)))
 		count++;
 	while (s[i])
 	{
-		if (i > 0 && s[i] != c && s[i - 1] == c)
+		if (i > 0 && !(ft_charset(s[i], set)) && ft_charset(s[i - 1], set))
 			count++;
 		i++;
 	}
 	return (count);
 }
 
-static char		*ft_fill_tab(char const *s, char c, char *ret, size_t *i)
+static char		*ft_fill_tab(char const *s, char *set, char *ret, size_t *i)
 {
 	size_t j;
 
 	j = 0;
-	while (s[*i] && s[*i] == c)
+	while (s[*i] && ft_charset(s[*i], set))
 		(*i)++;
-	while (s[*i] && s[*i] != c)
+	while (s[*i] && !(ft_charset(s[*i], set)))
 	{
 		ret[j] = s[*i];
 		(*i)++;
@@ -72,7 +72,7 @@ static char		*ft_fill_tab(char const *s, char c, char *ret, size_t *i)
 	return (ret);
 }
 
-char			**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char *set)
 {
 	char	**ret;
 	size_t	i;
@@ -81,16 +81,16 @@ char			**ft_split(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	nb_word = ft_nb_word(s, c);
+	nb_word = ft_nb_word(s, set);
 	ret = (char **)malloc(sizeof(char *) * (nb_word + 1));
 	if (!ret)
 		return (NULL);
 	while (nb_word--)
 	{
-		ret[j] = (char *)malloc(sizeof(char) * (ft_wordlen(s, c, i) + 1));
+		ret[j] = (char *)malloc(sizeof(char) * (ft_wordlen(s, set, i) + 1));
 		if (!ret[j])
 			return (ft_free_all(ret, j));
-		ret[j] = ft_fill_tab(s, c, ret[j], &i);
+		ret[j] = ft_fill_tab(s, set, ret[j], &i);
 		j++;
 	}
 	ret[j] = NULL;

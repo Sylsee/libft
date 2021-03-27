@@ -6,17 +6,20 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/03/21 17:07:22 by spoliart         ###   ########.fr        #
+#    Updated: 2021/03/27 17:03:18 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+###### VARIABLES ######
+
+
+## CUSTOMIZATION ##
 
 _END		=	\e[0m
 
 _RED		=	\e[31m
 _GREEN		=	\e[32m
 _YELLOW		=	\e[33m
-
-###### VARIABLES ######
 
 ## COMPILATION ##
 
@@ -30,11 +33,7 @@ RM				=	rm -rf
 
 ## NORME ##
 
-NORMINETTE		=	$(shell which norminette)
-
-ifeq ($$?, 1)
-	NORMINETTE := ${HOME}/.norminette/norminette.rb
-endif
+NORMINETTE		:=	${HOME}/.norminette/norminette.rb
 
 ## DIRECTORIES ##
 
@@ -70,6 +69,7 @@ SRCS			=	char/ft_isalnum.c \
 					print/ft_putnbr_fd.c \
 					print/ft_putstr_fd.c \
 					str/ft_split.c \
+					str/ft_free_split.c \
 					str/ft_strchr.c \
 					str/ft_strdup.c \
 					str/ft_strjoin.c \
@@ -85,7 +85,9 @@ SRCS			=	char/ft_isalnum.c \
 					str/ft_strrev.c \
 					str/ft_strextract.c \
 					str/ft_str_end.c \
+					str/ft_charset.c \
 					nbr/ft_atoi.c \
+					nbr/ft_atof.c \
 					nbr/ft_itoa.c \
 					nbr/ft_nbrlen.c \
 					mem/ft_bzero.c \
@@ -125,7 +127,7 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS)
 					@printf "\033[2K\r$(_GREEN) All files compiled into '$(DIR_OBJS)'. $(_END)✅\n"
-					@ar rc $(NAME) $(OBJS)
+					@ar rcs $(NAME) $(OBJS)
 					@ranlib $(NAME)
 					@printf "$(_GREEN) Library '$(NAME)' created. $(_END)✅\n"
 
@@ -143,24 +145,34 @@ $(SUB_DIR_OBJS):
 ## OBLIGATORY PART ##
 
 clean:
-					@$(RM) $(DIR_OBJS)
-					@printf "$(_RED) '"$(DIR_OBJS)"' has been deleted. $(_END)🗑️\n"
+					@$(RM) $(DIR_OBJS) test.o log.out test
+					@printf "$(_RED) '$(DIR_OBJS)', 'test.o', 'log.out' and 'test' has been deleted. $(_END)🗑️\n"
 
 fclean:			clean
 					@$(RM) $(NAME) libft.so
-					@printf "$(_RED) '"$(NAME)"' has been deleted. $(_END)🗑️\n"
+					@printf "$(_RED) '$(NAME)' and 'libft.so' has been deleted. $(_END)🗑️\n"
 
 re:				fclean all
 
 ## NORME ##
 
 norme:
-					$(NORMINETTE) $(DIR_SRCS)
-					$(NORMINETTE) $(DIR_HEADERS)
+					@$(NORMINETTE) $(DIR_SRCS)
+					@$(NORMINETTE) $(DIR_HEADERS)
 
 ## PHONY ##
 
-.PHONY:			all clean re fclean norme so
+.PHONY:			all clean re fclean norme so test
 
-so:				fclean $(OBJS)
-					gcc $(OBJS) -shared -o libft.so
+so:				fclean
+					@$(CC) -fPIC $(CFLAGS) $(SRC)
+					@gcc -shared -o libft.so $(OBJ)
+
+test:			all
+					@$(CC) -c test.c -o test.o
+					@$(CC) -o test test.o -L. -lft
+					@echo "Program output:\n--------------------------------------------------"
+					@valgrind --leak-check=full -v --track-origins=yes --log-file=log.out ./test | cat -e
+					@time -f "--------------------------------------------------\nProgram execution time: %es" ./test > /dev/null
+					@echo "\nValgrind log file as been created, named log.out"
+					@$(RM) test.o

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putxchar.c                                      :+:      :+:    :+:   */
+/*   ft_charset.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 18:22:18 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/26 18:24:10 by spoliart         ###   ########.fr       */
+/*   Created: 2021/03/27 00:47:32 by spoliart          #+#    #+#             */
+/*   Updated: 2021/03/27 00:48:11 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putxchar_fd(char c, int fd, int x)
+int		ft_charset(char c, char *set)
 {
-	int ret;
+	int i;
 
-	ret = 0;
-	while (x-- > 0)
-		ret += write(fd, &c, 1);
-	return (ret);
+	i = -1;
+	if (set)
+		while (set[++i])
+			if (set[i] == c)
+				return (1);
+	return (0);
 }

@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putxchar.c                                      :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 18:22:18 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/26 18:24:10 by spoliart         ###   ########.fr       */
+/*   Created: 2021/03/26 21:32:57 by spoliart          #+#    #+#             */
+/*   Updated: 2021/03/27 17:06:21 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
-int	ft_putxchar_fd(char c, int fd, int x)
-{
-	int ret;
+int	main(void)
+{/*
+	int i;
+	char **tab;
 
-	ret = 0;
-	while (x-- > 0)
-		ret += write(fd, &c, 1);
-	return (ret);
+	i = -1;
+	tab = ft_split(" Salut toi    ,ca va ?   ", " ");
+	while (tab[++i])
+		printf("%s\n", tab[i]);
+	ft_free_split(tab);*/
+	return (0);
 }

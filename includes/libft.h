@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/21 17:08:09 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/03/27 01:06:21 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,18 @@ char				*ft_strdup(const char *s);
 void				ft_strrev(char *str);
 char				*ft_strextract(char const *s, char const *set);
 int					ft_str_end(char *s, char *set);
+int					ft_charset(char c, char *set);
 
 int					ft_atoi(const char *nptr);
+double				ft_atof(char *s);
 char				*ft_itoa(int n);
 int					ft_nbrlen(long nb);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
-char				**ft_split(char const *s, char c);
+char				**ft_split(char const *s, char *set);
+void				ft_free_split(char **tab);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void				ft_putchar_fd(char c, int fd);
@@ -65,7 +68,6 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_putxchar_fd(char c, int fd, int x);
-
 
 typedef struct		s_list
 {
