@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:32:16 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/31 15:38:15 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/04/20 20:21:20 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	unsigned int	i;
 
 	i = 0;
-	s_len = 0;
-	d_len = 0;
 	s_len = ft_strlen(src);
 	d_len = ft_strlen(dest);
 	if (size <= d_len)
