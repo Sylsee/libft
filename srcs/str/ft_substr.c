@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 23:29:23 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/11 13:18:53 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/04/21 20:19:33 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	int		size;
+	size_t	i;
+	size_t	size;
 	char	*ret;
 
 	i = 0;
