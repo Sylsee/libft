@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/15 23:47:01 by spoliart          #+#    #+#             */
-/*   Updated: 2021/01/04 15:50:04 by spoliart         ###   ########.fr       */
+/*   Created: 2021/04/20 20:25:20 by spoliart          #+#    #+#             */
+/*   Updated: 2021/04/21 03:13:26 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int i;
+	const char *str;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	str = s;
+	while (*str)
+		str++;
+	return (str - s);
 }
