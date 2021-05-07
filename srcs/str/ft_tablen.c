@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dec_to_hex.c                                    :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 20:30:48 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/07 01:14:22 by spoliart         ###   ########.fr       */
+/*   Created: 2021/05/07 19:17:52 by spoliart          #+#    #+#             */
+/*   Updated: 2021/05/07 20:08:08 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_dec_to_hex(int nb)
+size_t	ft_tablen(char **tab)
 {
-	int		n;
-	int		len;
-	char	*ret;
+	size_t i;
 
-	if (nb < 0)
-		nb *= -1;
-	n = nb;
-	len = 0;
-	while (nb)
-		nb /= 16 + 0 * len++;
-	ret = (char *)malloc(sizeof(ret) * (len + 1));
-	if (!ret)
-		return (0);
-	if (!len)
-		ret[len++] = '0';
-	ret[len] = '\0';
-	while (len--)
-	{
-		if (n % 16 < 10)
-			ret[len] = n % 16 + 48;
-		else
-			ret[len] = n % 16 + 55;
-		n /= 16;
-	}
-	return (ret);
+	i = 0;
+	if (!tab)
+		return (-1);
+	while (tab[i])
+		i++;
+	return (i);
 }

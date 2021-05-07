@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/07 01:15:42 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/07 20:07:58 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 
 size_t				ft_strlen(const char *str);
+size_t				ft_tablen(char **tab);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -55,7 +56,7 @@ int					ft_atoi(const char *nptr);
 double				ft_atof(char *s);
 char				*ft_itoa(int n);
 int					ft_nbrlen(long nb);
-char				*ft_dec_to_hex(int nb);
+char				*ft_itox(int nb);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);

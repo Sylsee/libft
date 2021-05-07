@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_dec_to_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 21:32:57 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/07 18:34:55 by spoliart         ###   ########.fr       */
+/*   Created: 2021/05/03 20:30:48 by spoliart          #+#    #+#             */
+/*   Updated: 2021/05/07 18:36:17 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-int	main()
+char	*ft_itox(int nb)
 {
-	/* ************ CODE HERE ************ */
+	int		n;
+	int		len;
+	char	*ret;
 
-	/* *********************************** */
-
-	printf("\n");
-	return (0);
+	if (nb < 0)
+		nb *= -1;
+	n = nb;
+	len = 0;
+	while (nb)
+		nb /= 16 + 0 * len++;
+	ret = (char *)malloc(sizeof(ret) * (len + 1));
+	if (!ret)
+		return (0);
+	if (!len)
+		ret[len++] = '0';
+	ret[len] = '\0';
+	while (len--)
+	{
+		if (n % 16 < 10)
+			ret[len] = n % 16 + 48;
+		else
+			ret[len] = n % 16 + 55;
+		n /= 16;
+	}
+	return (ret);
 }
