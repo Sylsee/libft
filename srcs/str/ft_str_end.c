@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 17:05:41 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/21 17:06:06 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/22 23:15:41 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int		ft_str_end(char *s, char *set)
 {
-	int i;
-	int j;
+	size_t	i;
+	size_t	j;
 
 	i = ft_strlen(s);
 	j = ft_strlen(set);
-	while (i != 0 && j != 0)
-		if (s[i--] != set[j--])
+	while (i > 0 && j > 0)
+		if (s[--i] != set[--j])
 			return (0);
-	return (1);
+	if (j == 0)
+		return (1);
+	return (0);
 }

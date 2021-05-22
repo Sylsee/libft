@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 21:32:57 by spoliart          #+#    #+#             */
-/*   Updated: 2021/05/22 23:16:02 by spoliart         ###   ########.fr       */
+/*   Created: 2021/05/22 22:45:50 by spoliart          #+#    #+#             */
+/*   Updated: 2021/05/22 22:49:25 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	/* ************ CODE HERE ************ */
+	size_t	i;
 
-	/* *********************************** */
-	printf("\n");
-	return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
