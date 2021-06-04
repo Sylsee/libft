@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 13:00:49 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/27 01:05:49 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/30 12:58:55 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ char			**ft_split(char const *s, char *set)
 	i = 0;
 	j = 0;
 	nb_word = ft_nb_word(s, set);
-	ret = (char **)malloc(sizeof(char *) * (nb_word + 1));
+	ret = malloc(sizeof(ret) * (nb_word + 1));
 	if (!ret)
 		return (NULL);
 	while (nb_word--)
 	{
-		ret[j] = (char *)malloc(sizeof(char) * (ft_wordlen(s, set, i) + 1));
+		ret[j] = malloc(sizeof(ret[j]) * (ft_wordlen(s, set, i) + 1));
 		if (!ret[j])
 			return (ft_free_all(ret, j));
 		ret[j] = ft_fill_tab(s, set, ret[j], &i);

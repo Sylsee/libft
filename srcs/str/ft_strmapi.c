@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 00:20:59 by spoliart          #+#    #+#             */
-/*   Updated: 2020/10/24 20:52:48 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/30 13:03:10 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s || !f)
 		return (NULL);
-	ret = (char *)malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
+	ret = malloc(sizeof(ret) * (ft_strlen((char *)s) + 1));
 	if (!ret)
 		return (NULL);
 	while (s[i])

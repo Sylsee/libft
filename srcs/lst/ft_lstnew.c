@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/25 18:50:20 by spoliart          #+#    #+#             */
-/*   Updated: 2020/10/25 18:54:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/30 13:10:41 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list *new;
 
-	new = (t_list *)malloc(sizeof(t_list));
+	new = malloc(sizeof(new));
 	if (!new)
 		return (NULL);
 	new->content = content;

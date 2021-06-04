@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:23:56 by spoliart          #+#    #+#             */
-/*   Updated: 2021/02/26 18:27:31 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/05/30 13:06:31 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char		*ft_itoa(int n)
 
 	tmp = n;
 	i = ft_nbrlen(tmp);
-	str = (char *)malloc(sizeof(char) * (i + 1));
+	str = malloc(sizeof(str) * (i + 1));
 	if (!str)
 		return (NULL);
 	str[i] = '\0';

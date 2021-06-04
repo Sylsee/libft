@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/05/22 22:57:50 by spoliart         ###   ########.fr        #
+#    Updated: 2021/05/26 00:55:03 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -174,9 +174,9 @@ so:				fclean
 
 test:			all
 					@$(CC) -c test.c -o test.o
-					@$(CC) -o test test.o -L. -lft
-					@echo "Program output:\n--------------------------------------------------"
+					@$(CC) -o test test.o -L. -lft -lm
+					@echo "Program output:\n------------------------------------------------"
 					@valgrind --leak-check=full -v --track-origins=yes --log-file=log.out ./test | cat -e
-					@time -f "--------------------------------------------------\nProgram execution time: %es" ./test > /dev/null
+					@time -f "------------------------------------------------\nProgram execution time: %es" ./test > /dev/null
 					@echo "\nValgrind log file as been created, named log.out"
 					@$(RM) test.o
