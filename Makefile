@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/10/14 11:07:59 by spoliart         ###   ########.fr        #
+#    Updated: 2021/10/14 11:10:46 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,11 @@ NORMINETTE		:=	${HOME}/.norminette/norminette.rb
 
 ## DIRECTORIES ##
 
-DIR_HEADERS		=	./includes/
+DIR_HEADERS		=	includes/
 
-DIR_SRCS		=	./srcs/
+DIR_SRCS		=	srcs/
 
-DIR_OBJS		=	./objs/
+DIR_OBJS		=	objs/
 
 SUB_DIRS		=	. \
 					char \
