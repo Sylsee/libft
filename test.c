@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spoliart <spoliart@student.42.fr>          +#+  +:+       +#+        */
+/*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/26 21:32:57 by spoliart          #+#    #+#             */
-/*   Updated: 2021/07/30 06:52:16 by spoliart         ###   ########.fr       */
+/*   Created: 2021/10/14 03:09:36 by spoliart          #+#    #+#             */
+/*   Updated: 2021/10/14 03:10:03 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 int	main(void)
 {
-	/* ************ CODE HERE ************ */
-	/* *********************************** */
-	printf("\n");
 	return (0);
 }

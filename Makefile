@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/07/28 20:14:59 by spoliart         ###   ########.fr        #
+#    Updated: 2021/10/14 11:07:59 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -159,6 +159,12 @@ fclean:			clean
 					@printf "$(_RED) '$(NAME)' and 'libft.so' has been deleted. $(_END)🗑️\n"
 
 re:				fclean all
+
+push:
+				@make fclean
+				@git add .
+				@git commit -m "libft"
+				@git push
 
 ## NORME ##
 
