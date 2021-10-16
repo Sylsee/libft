@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 03:09:36 by spoliart          #+#    #+#             */
-/*   Updated: 2021/10/16 00:39:59 by spoliart         ###   ########.fr       */
+/*   Created: 2021/10/16 00:31:09 by spoliart          #+#    #+#             */
+/*   Updated: 2021/10/16 00:37:15 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_strequ(char *s1, char *s2)
 {
+	if (!s1 || !s2)
+		return (1);
+	while (*s1 && *s2)
+		if (*s1++ != *s2++)
+			return (1);
+	if (*s1++ != *s2++)
+		return (1);
 	return (0);
 }
