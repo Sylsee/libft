@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/10/16 00:34:59 by spoliart         ###   ########.fr        #
+#    Updated: 2021/10/16 08:58:52 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ _YELLOW		=	\e[33m
 
 CC				=	gcc
 
-CC_FLAGS		=	-Wall -Wextra -Werror
+CC_FLAGS		=	-Wall -Wextra -Werror -g
 
 ## DELETE ##
 
@@ -91,7 +91,6 @@ SRCS			=	char/ft_isalnum.c \
 					str/ft_strextract.c \
 					str/ft_str_end.c \
 					str/ft_charset.c \
-					str/ft_strequ.c \
 					nbr/ft_atoi.c \
 					nbr/ft_atof.c \
 					nbr/ft_itoa.c \
