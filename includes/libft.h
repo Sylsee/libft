@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/10/16 08:15:11 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/10/22 18:53:18 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include "get_next_line.h"
+# include <stddef.h>
+# include <stdint.h>
 # include <string.h>
 # include <strings.h>
 # include <unistd.h>
