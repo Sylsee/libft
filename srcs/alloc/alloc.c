@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 12:35:21 by spoliart          #+#    #+#             */
-/*   Updated: 2021/10/28 22:23:51 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/10/29 15:21:12 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ void	free_area(t_area *area)
 		freelist = area->freelist;
 	while (freelist != NULL)
 	{
-//		if (area != NULL)
-//			printf("%p\n", freelist);
 		tmp = freelist->next;
 		free(freelist);
 		freelist = tmp;
