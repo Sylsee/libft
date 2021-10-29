@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/10/26 23:25:45 by spoliart         ###   ########.fr        #
+#    Updated: 2021/10/29 15:18:31 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -163,7 +163,7 @@ fclean:			clean
 re:				fclean all
 
 push:
-				@make fclean
+				@make -s fclean
 				@git add .
 				@git commit -m "libft"
 				@git push
