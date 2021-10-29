@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:26:31 by spoliart          #+#    #+#             */
-/*   Updated: 2021/07/25 02:29:13 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:49:41 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	pt_src = (unsigned char *)src;
 	pt_dst = (unsigned char *)dst;
-	tab = malloc(sizeof(unsigned char) * len);
+	tab = alloc(sizeof(unsigned char) * len, &g_ftarea);
 	if (!tab)
 		return (dst);
 	if (!len || src == dst)

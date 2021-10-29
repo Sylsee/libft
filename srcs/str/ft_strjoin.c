@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 23:17:08 by spoliart          #+#    #+#             */
-/*   Updated: 2021/07/25 02:25:07 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:52:59 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	j = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	ret = malloc(sizeof(char) * (j + 1));
+	ret = alloc(sizeof(char) * (j + 1), &g_ftarea);
 	if (!ret)
 		return (NULL);
 	j = -1;

@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/10/22 18:53:18 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/10/26 23:03:19 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include "get_next_line.h"
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <string.h>
@@ -78,7 +79,7 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putxchar_fd(char c, int fd, int x);
 void				ft_putbits_fd(size_t size, void *ptr, int fd);
-
+/*			CHAINED LIST			*/
 typedef struct s_list
 {
 	void			*content;
@@ -95,5 +96,24 @@ int					ft_lstsize(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+/*			ALLOC			*/
+
+typedef struct	s_link
+{
+	struct s_link	*prev;
+	struct s_link	*next;
+}				t_link;
+
+typedef struct	s_area
+{
+	struct s_link	*freelist;
+}				t_area;
+
+extern t_area	g_ftarea;
+
+t_area	*init_area(t_area	*area);
+void	*alloc(size_t size, t_area *area);
+void	free_one(void *ptr, t_area *area);
+void	free_area(t_area *area);
 
 #endif
