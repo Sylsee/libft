@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 13:00:49 by spoliart          #+#    #+#             */
-/*   Updated: 2021/10/26 23:21:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:27:22 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 static char	**ft_free_all(char **ret, size_t i)
 {
 	while (--i + 1)
-		free(ret[i]);
-	free(ret);
+		free_one(ret[i], NULL);
+	free_one(ret, NULL);
 	return (0);
 }
 
