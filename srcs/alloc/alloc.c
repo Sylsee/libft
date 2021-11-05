@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 12:35:21 by spoliart          #+#    #+#             */
-/*   Updated: 2021/11/05 18:39:25 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/11/05 18:48:37 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,7 @@ void	free_one(void *link, t_area *area)
 	if (l->prev != NULL)
 		l->prev->next = l->next;
 	else
-	{
-		if (area == NULL)
-			g_ftarea->freelist = l->next;
-		else
-			area->freelist = l->next;
-	}
+		area->freelist = l->next;
 	if (l->next)
 		l->next->prev = l->prev;
 	free(l);
