@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 12:35:21 by spoliart          #+#    #+#             */
-/*   Updated: 2021/11/05 18:58:20 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/11/06 16:41:27 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	free_one(void *link, t_area *area)
 	else
 	{
 		if (area == NULL)
-			g_ftarea->freelist = l->next;
+			g_ftarea.freelist = l->next;
 		else
 			area->freelist = l->next;
 	}
