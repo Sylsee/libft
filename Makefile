@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/10/29 15:18:31 by spoliart         ###   ########.fr        #
+#    Updated: 2021/11/06 17:19:49 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -183,10 +183,10 @@ so:				fclean
 					@gcc -shared -o libft.so $(OBJ)
 
 test:			all
-					@$(CC) -c test.c -o test.o
-					@$(CC) -o test test.o -L. -lft -lm
+					@$(CC) -g -c test.c -o test.o
+					@$(CC) -g -o test test.o -L. -lft -lm
 					@echo "Program output:\n------------------------------------------------"
 					@valgrind --leak-check=full -v --track-origins=yes --log-file=log.out ./test | cat -e
-					@time -f "------------------------------------------------\nProgram execution time: %es" ./test > /dev/null
+					@time -f "------------------------------------------------\nProgram execution time: %es" ./test 2>&1 > /dev/null
 					@echo "\nValgrind log file as been created, named log.out"
 					@$(RM) test.o

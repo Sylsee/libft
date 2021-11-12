@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/10/29 15:25:15 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/11/12 02:41:52 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include "get_next_line.h"
+# include <errno.h>
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
@@ -25,6 +26,28 @@
 # include <math.h>
 # include <limits.h>
 
+/*			ALLOC			*/
+
+typedef struct s_link
+{
+	struct s_link	*prev;
+	struct s_link	*next;
+}					t_link;
+
+typedef struct s_area
+{
+	struct s_link	*freelist;
+}					t_area;
+
+extern t_area		g_ftarea;
+
+t_area				*init_area(t_area *area);
+
+/*			MEM				*/
+
+void				*alloc(size_t size, t_area *area);
+void				free_one(void *ptr, t_area *area);
+void				free_area(t_area *area);
 void				ft_bzero(void *s, size_t n);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_memalloc(size_t size);
@@ -70,7 +93,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char *set);
-void				ft_free_tab(char **tab);
+void				ft_free_tab(char **tab, t_area *area);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 void				ft_putchar_fd(unsigned char c, int fd);
@@ -98,25 +121,5 @@ int					ft_lstsize(t_list *lst);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-
-/*			ALLOC			*/
-
-typedef struct s_link
-{
-	struct s_link	*prev;
-	struct s_link	*next;
-}					t_link;
-
-typedef struct s_area
-{
-	struct s_link	*freelist;
-}					t_area;
-
-extern t_area		g_ftarea;
-
-t_area				*init_area(t_area	*area);
-void				*alloc(size_t size, t_area *area);
-void				free_one(void *ptr, t_area *area);
-void				free_area(t_area *area);
 
 #endif
