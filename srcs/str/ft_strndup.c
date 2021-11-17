@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/14 07:51:38 by arguilla          #+#    #+#             */
-/*   Updated: 2021/11/17 19:48:31 by arguilla         ###   ########.fr       */
+/*   Created: 2021/11/14 08:16:55 by arguilla          #+#    #+#             */
+/*   Updated: 2021/11/17 19:56:53 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(int c)
+char	*ft_strndup(const char *s, size_t n)
 {
-	return (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == ' ');
+	size_t	i;
+	char	*dup;
+
+	i = 0;
+	dup = alloc(sizeof(char) * (n + 1), &g_ftarea);
+	if (!dup)
+		return (0);
+	while (s[i] && i < n)
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }

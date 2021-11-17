@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/11/06 17:19:49 by spoliart         ###   ########.fr        #
+#    Updated: 2021/11/17 19:59:58 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SUB_DIR_OBJS	=	$(SUB_DIRS:%=$(DIR_OBJS)%)
 ## FILES ##
 
 SRCS			=	char/ft_isalnum.c \
+					char/ft_isspace.c \
 					char/ft_isalpha.c \
 					char/ft_isascii.c \
 					char/ft_isdigit.c \
@@ -81,6 +82,7 @@ SRCS			=	char/ft_isalnum.c \
 					str/ft_strlen.c \
 					str/ft_tablen.c \
 					str/ft_strmapi.c \
+					str/ft_strndup.c \
 					str/ft_strncmp.c \
 					str/ft_strcmp.c \
 					str/ft_strict_strcmp.c \
