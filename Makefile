@@ -6,7 +6,7 @@
 #    By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/13 19:04:24 by spoliart          #+#    #+#              #
-#    Updated: 2021/11/17 19:59:58 by arguilla         ###   ########.fr        #
+#    Updated: 2021/11/25 01:42:29 by spoliart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ SUB_DIRS		=	. \
 					lst \
 					nbr \
 					alloc \
-					utils
+					gnl
 
 SUB_DIR_OBJS	=	$(SUB_DIRS:%=$(DIR_OBJS)%)
 
@@ -94,6 +94,7 @@ SRCS			=	char/ft_isalnum.c \
 					str/ft_strextract.c \
 					str/ft_str_end.c \
 					str/ft_charset.c \
+					str/ft_strequ.c \
 					nbr/ft_atoi.c \
 					nbr/ft_atof.c \
 					nbr/ft_itoa.c \
@@ -118,8 +119,8 @@ SRCS			=	char/ft_isalnum.c \
 					lst/ft_lstnew.c \
 					lst/ft_lstsize.c \
 					alloc/alloc.c \
-					utils/get_next_line.c \
-					utils/get_next_line_utils.c
+					gnl/get_next_line.c \
+					gnl/get_next_line_utils.c
 
 ## COMPILED ##
 

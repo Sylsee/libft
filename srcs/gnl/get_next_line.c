@@ -6,11 +6,12 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 16:17:20 by spoliart          #+#    #+#             */
-/*   Updated: 2021/11/05 18:26:02 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/11/28 19:33:20 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 static int	ft_return_gnl(char *s, size_t i)
 {
@@ -31,7 +32,7 @@ int	get_next_line(int fd, char **line)
 	char		*buffer;
 	char		*tmp;
 
-	i = -1;
+	i = 1;
 	if (read(fd, 0, 0) == -1 || fd < 0 || !line || BUFFER_SIZE < 1)
 		return (-1);
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));

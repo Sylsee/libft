@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 12:35:21 by spoliart          #+#    #+#             */
-/*   Updated: 2021/11/06 16:41:27 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/11/17 23:10:32 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,23 @@ t_area	*init_area(t_area *area)
 
 void	*alloc(size_t size, t_area *area)
 {
+	t_area	*a;
 	t_link	*l;
 
+	if (area == NULL)
+		a = &g_ftarea;
+	else
+		a = area;
 	if (size > SIZE_MAX - sizeof(t_link))
 		return (NULL);
 	l = malloc(sizeof(t_link) + size);
 	if (!l)
 		return (NULL);
-	l->next = area->freelist;
+	l->next = a->freelist;
 	l->prev = NULL;
-	if (area->freelist)
-		area->freelist->prev = l;
-	area->freelist = l;
+	if (a->freelist)
+		a->freelist->prev = l;
+	a->freelist = l;
 	return ((void *)(((char *)(l)) + sizeof(t_link)));
 }
 
