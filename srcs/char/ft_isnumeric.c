@@ -6,7 +6,7 @@
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 18:43:32 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/03 18:46:32 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:42:36 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_isnumeric(const char *s)
 	i = 0;
 	while (ft_isdigit(s[i]))
 		i++;
-	return (s[i] != 0);
+	return (s[i] == '\0');
 }
