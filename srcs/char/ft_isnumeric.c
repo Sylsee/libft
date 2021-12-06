@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_isnumeric.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spoliart <spoliart@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 03:09:36 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/06 19:00:35 by spoliart         ###   ########.fr       */
+/*   Created: 2021/12/03 18:43:32 by spoliart          #+#    #+#             */
+/*   Updated: 2021/12/03 18:46:32 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_isnumeric(const char *s)
 {
-	return (0);
+	int	i;
+
+	i = 0;
+	while (ft_isdigit(s[i]))
+		i++;
+	return (s[i] != 0);
 }
