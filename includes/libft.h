@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2021/12/06 18:52:57 by spoliart         ###   ########.fr       */
+/*   Updated: 2021/12/09 01:02:58 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,9 @@ char				*ft_strndup(const char *s, size_t n);
 void				ft_strrev(char *str);
 char				*ft_strextract(char const *s, char const *set);
 int					ft_str_end(char *s, char *set);
-int					ft_charset(char c, char *set);
+int					ft_charset(char c, const char *set);
 int					ft_strequ(const char *s1, const char *s2);
+int					ft_strcontains(const char *s, const char *set);
 
 int					ft_atoi(const char *nptr);
 double				ft_atof(char *s);
