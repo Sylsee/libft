@@ -6,7 +6,7 @@
 /*   By: spoliart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 15:29:25 by spoliart          #+#    #+#             */
-/*   Updated: 2021/03/26 22:42:19 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/01/05 23:12:35 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ double	ft_atof(char *s)
 	int		nb;
 	double	res;
 
+	res = 0;
 	nb = ft_atoi(s);
 	i = ft_nbrlen(nb);
 	if (s[i] == '.')
