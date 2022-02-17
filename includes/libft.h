@@ -6,7 +6,7 @@
 /*   By: spoliart <sylvio.poliart@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 20:34:43 by spoliart          #+#    #+#             */
-/*   Updated: 2022/01/05 21:33:35 by spoliart         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:07:43 by spoliart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ double				ft_atof(char *s);
 char				*ft_itoa(int n);
 int					ft_nbrlen(long nb);
 char				*ft_itox(int nb);
+int					ft_xtoi(const char *hexstring);
 
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
